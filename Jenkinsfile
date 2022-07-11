@@ -13,6 +13,7 @@ pipeline {
         stage('dev-build') {
             steps {
                 script{
+                    sh "rm -r docker-practical"
                     output = checkoutrepo.checkoutRepo 'https://github.com/jitendra-github-lab/docker-practical.git'
                     echo "OUTPUT : ${output}"                    
                 }
