@@ -14,7 +14,7 @@ pipeline {
             steps {
                 script{
                  value = credentials('shared_lib')
-                 echo "CRED : ${value}
+                 echo "CRED : ${value}"
                  sh "rm -r docker-practical"
                  output = checkoutrepo.checkoutRepo 'https://github.com/jitendra-github-lab/docker-practical.git'
                  echo "OUTPUT : ${output}"                    
