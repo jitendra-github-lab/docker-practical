@@ -13,12 +13,11 @@ pipeline {
         stage('dev-build') {
             steps {
                 script{
-                    withCredentials([string(credentialsId: 'shared_lib', variable: 'SECRET')]) { //set SECRET with the credential content
-                        echo "My secret text is '${SECRET}'"
-                    }
-                    sh "rm -r docker-practical"
-                    output = checkoutrepo.checkoutRepo 'https://github.com/jitendra-github-lab/docker-practical.git'
-                    echo "OUTPUT : ${output}"                    
+                 value = credentials('shared_lib')
+                 echo "CRED : ${value}
+                 sh "rm -r docker-practical"
+                 output = checkoutrepo.checkoutRepo 'https://github.com/jitendra-github-lab/docker-practical.git'
+                 echo "OUTPUT : ${output}"                    
                 }
             }
         }      
