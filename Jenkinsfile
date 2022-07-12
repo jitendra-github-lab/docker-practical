@@ -1,6 +1,6 @@
 library identifier: 'shared-lib-demo@main', retriever: modernSCM(
 [$class: 'GitSCMSource',
- remote: credentials('shared_lib')])
+ remote: "https://github.com/jitendra-github-lab/shared-lib.git"])
 
 pipeline {
     agent any
@@ -13,6 +13,7 @@ pipeline {
         stage('dev-build') {
             steps {
                 script{
+                    echo credentials('shared_lib')
                     sh "rm -r docker-practical"
                     output = checkoutrepo.checkoutRepo 'https://github.com/jitendra-github-lab/docker-practical.git'
                     echo "OUTPUT : ${output}"                    
