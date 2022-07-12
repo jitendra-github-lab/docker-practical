@@ -1,6 +1,6 @@
 library identifier: 'shared-lib-demo@main', retriever: modernSCM(
 [$class: 'GitSCMSource',
- remote: "${params.shared_lib}"])
+ remote: credentials('shared_lib')])
 
 pipeline {
     agent any
