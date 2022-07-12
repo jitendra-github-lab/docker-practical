@@ -13,7 +13,7 @@ pipeline {
         stage('dev-build') {
             steps {
                 script{
-                    withCredentials([string(credentialsId: 'my-shared_lib', variable: 'SECRET')]) { //set SECRET with the credential content
+                    withCredentials([string(credentialsId: 'shared_lib', variable: 'SECRET')]) { //set SECRET with the credential content
                         echo "My secret text is '${SECRET}'"
                     }
                     sh "rm -r docker-practical"
